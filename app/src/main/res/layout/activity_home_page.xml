@@ -139,5 +139,6 @@
         app:itemBackground="#1C776E"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
-        app:menu="@menu/menu_navigation"
+        app:menu="@menu/menu_navigation"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
