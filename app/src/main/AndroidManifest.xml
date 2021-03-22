@@ -9,12 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Phrasely">
+        <activity android:name=".Settings">
+            android:label="Settings"
+        </activity>
 
-        <activity android:name=".LanguageBot"
-        android:parentActivityName=".HomePage" />
+        <activity
+            android:name=".LanguageBot"
+            android:parentActivityName=".HomePage"
+            android:label="Language Bot"
+            />
 
-        <activity android:name=".PhraseMaker"
-            android:parentActivityName=".HomePage" />
+        <activity
+            android:name=".PhraseMaker"
+            android:parentActivityName=".HomePage"
+            android:label="Phrase Maker"
+            />
 
         <activity
             android:name=".HomePage"

@@ -8,19 +8,18 @@
 
     <item
         android:id="@+id/sentence_maker_nav"
-        android:title="Sentence Maker"
+        android:title="Sentence"
         android:icon="@drawable/ic_sentencemaker"/>
 
     <item
         android:id="@+id/lang_bot_nav"
-        android:title="Lang Bot"
-        android:icon="@drawable/ic_langbot"/>
+        android:title="Lang"
+        android:icon="@drawable/ic_langbots"/>
 
     <item
         android:id="@+id/settings_nav"
         android:title="Settings"
         android:icon="@drawable/ic_settings"/>
-
 
 
 </menu>
