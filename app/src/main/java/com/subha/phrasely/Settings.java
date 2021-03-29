@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Settings extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,21 +25,20 @@ public class Settings extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.settings_nav);
 
         //perfom ItemSelectedListener Event
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
-        {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.sentence_maker_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,PhraseMaker.class));
-                        overridePendingTransition(0,0);
+                                , PhraseMaker.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.lang_bot_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,LanguageBot.class));
-                        overridePendingTransition(0,0);
+                                , LanguageBot.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.settings_nav:
@@ -45,8 +46,8 @@ public class Settings extends AppCompatActivity {
 
                     case R.id.home_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,HomePage.class));
-                        overridePendingTransition(0,0);
+                                , HomePage.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -54,5 +55,13 @@ public class Settings extends AppCompatActivity {
 
 
         });
+
     }
-}
+
+    //method for going to homepage from backbutton
+    public void goback(View v) {
+        //launching Home page activity
+        Intent settingstohome = new Intent(this, HomePage.class);
+        startActivity(settingstohome);
+     }
+    }

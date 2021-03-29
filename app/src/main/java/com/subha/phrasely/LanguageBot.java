@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -54,5 +55,11 @@ public class LanguageBot extends AppCompatActivity {
 
 
         });
+    }
+    //method for going to homepage from backbutton
+    public void goback(View v) {
+        //launching Home page activity
+        Intent langbottohome = new Intent(this, HomePage.class);
+        startActivity(langbottohome);
     }
 }
