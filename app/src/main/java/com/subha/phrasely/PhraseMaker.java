@@ -63,13 +63,13 @@ public class PhraseMaker extends AppCompatActivity {
         client.addHeader("x-rapidapi-key", "cdd85fe9c4msh0221571fabec381p19a98bjsn16a1d4a2d848");
         client.addHeader("x-rapidapi-host", "linguatools-sentence-generating.p.rapidapi.com");
 
-        /*    final String OBJECT = "realise?object=";
+         /*   final String OBJECT = "realise?object=";
             final String SUBJECT = "&subject=";
             final String VERB = "&verb=";
             final String URL_PREFIX = "https://linguatools-sentence-generating.p.rapidapi.com/";
 
-            String url = URL_PREFIX + OBJECT + obj_int + SUBJECT + sub_int + VERB + verb_int ; */
-
+            String url = URL_PREFIX + OBJECT + obj_int + SUBJECT + sub_int + VERB + verb_int ;
+*/
         client.get("https://linguatools-sentence-generating.p.rapidapi.com/realise?object=thief&subject=police&verb=arrest", new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {

@@ -89,4 +89,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation"/>
 
+    <TextView
+        android:id="@+id/txtViewlangbotintro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Hi, I'm LangBot"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/txtViewlangbotintro2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Are you ready to chat with me?"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewlangbotintro" />
+
+    <Button
+        android:id="@+id/btnStartChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#BCB1D3"
+        android:text="Start a chat"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewlangbotintro2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/robot"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="322dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
