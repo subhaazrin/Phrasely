@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.subha.phrasely">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,38 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Phrasely">
-        <activity android:name=".Settings"
+        <activity android:name=".GeneratedSentence"></activity>
+        <activity
+            android:name=".Settings"
             android:label="Settings" />
-
         <activity
             android:name=".LanguageBot"
-            android:parentActivityName=".HomePage"
             android:label="Language Bot"
-            />
-
+            android:parentActivityName=".HomePage" />
         <activity
             android:name=".PhraseMaker"
-            android:parentActivityName=".HomePage"
             android:label="Phrase Maker"
-            />
-
+            android:parentActivityName=".HomePage" />
         <activity
             android:name=".HomePage"
             android:label="Home" />
-
         <activity
             android:name=".MainActivity"
             android:label="Phrasely">
-
             <intent-filter>
-               //MAIN refers to it being launcher and reference to activity
+                //MAIN refers to it being launcher and reference to activity
                 <action android:name="android.intent.action.MAIN" />
                 //LAUNCHER suggests its the launching page
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
     </application>
 
 </manifest>
