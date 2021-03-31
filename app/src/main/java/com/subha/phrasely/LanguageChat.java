@@ -7,42 +7,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.w3c.dom.Text;
-
-public class GeneratedSentence extends AppCompatActivity {
+public class LanguageChat extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_generated_sentence);
-
-        //when sentence button clicked
-        Button sentencebtn = findViewById(R.id.sentenceBtn);
-
-        sentencebtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                //launch Setence Breakdown activity
-                Intent showbreakdown = new Intent (GeneratedSentence.this, SentenceBreakdown.class);
-                startActivity(showbreakdown);
-            }
-        });
+        setContentView(R.layout.activity_language_chat);
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        //set sentence maker selected for this page
-        bottomNavigationView.setSelectedItemId(R.id.sentence_maker_nav);
+        //set languagebot selected for this page
+        bottomNavigationView.setSelectedItemId(R.id.lang_bot_nav);
 
         //perfom ItemSelectedListener Event
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
+                    case R.id.sentence_maker_nav:
+                        startActivity(new Intent(getApplicationContext()
+                                ,PhraseMaker.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                     case R.id.home_nav:
                         startActivity(new Intent(getApplicationContext()
                                 ,HomePage.class));
@@ -50,12 +41,6 @@ public class GeneratedSentence extends AppCompatActivity {
                         return true;
 
                     case R.id.lang_bot_nav:
-                        startActivity(new Intent(getApplicationContext()
-                                ,LanguageBot.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.sentence_maker_nav:
                         return true;
 
                     case R.id.settings_nav:
@@ -72,10 +57,10 @@ public class GeneratedSentence extends AppCompatActivity {
 
     }
 
-    //method for going to homepage from backbutton
+    //method for going to langbot page from backbutton
     public void goback(View v) {
-        //launching phraser main activity
-        Intent generatedtophraser = new Intent(this, PhraseMaker.class);
-        startActivity(generatedtophraser);
+        //launching Home page activity
+        Intent langchattobot = new Intent(this, LanguageBot.class);
+        startActivity(langchattobot);
     }
-}
+    }

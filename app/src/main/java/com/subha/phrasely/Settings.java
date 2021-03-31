@@ -21,7 +21,7 @@ public class Settings extends AppCompatActivity {
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        //set home selected for this page
+        //set settings selected for this page
         bottomNavigationView.setSelectedItemId(R.id.settings_nav);
 
         //perfom ItemSelectedListener Event

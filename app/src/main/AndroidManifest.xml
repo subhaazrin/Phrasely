@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Phrasely">
-        <activity android:name=".GeneratedSentence"></activity>
+        <activity android:name=".SentenceBreakdown"></activity>
+        <activity android:name=".LanguageChat" />
+        <activity android:name=".GeneratedSentence" />
         <activity
             android:name=".Settings"
             android:label="Settings" />

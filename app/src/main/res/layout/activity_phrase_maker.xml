@@ -36,7 +36,6 @@
         app:srcCompat="@drawable/back_logo" />
 
 
-    //nav bar stuff
 
     <Button
         android:id="@+id/inputbtn"

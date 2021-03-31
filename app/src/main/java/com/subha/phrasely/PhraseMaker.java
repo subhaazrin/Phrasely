@@ -106,7 +106,7 @@ public class PhraseMaker extends AppCompatActivity {
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        //set home selected for this page
+        //set phraser selected for this page
         bottomNavigationView.setSelectedItemId(R.id.sentence_maker_nav);
 
         //perfom ItemSelectedListener Event

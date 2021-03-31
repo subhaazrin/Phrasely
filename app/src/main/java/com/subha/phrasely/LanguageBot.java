@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,10 +18,22 @@ public class LanguageBot extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_bot);
 
+        //when start a chat button clicked
+        Button startchatbtn = findViewById(R.id.btnStartChat);
+
+        startchatbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                Intent startchat = new Intent (LanguageBot.this, LanguageChat.class);
+                startActivity(startchat);
+            }
+        });
+
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        //set home selected for this page
+        //set languagebot selected for this page
         bottomNavigationView.setSelectedItemId(R.id.lang_bot_nav);
 
         //perfom ItemSelectedListener Event

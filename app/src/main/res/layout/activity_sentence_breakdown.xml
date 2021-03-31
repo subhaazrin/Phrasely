@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GeneratedSentence">
+    tools:context=".SentenceBreakdown">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dwww"
         android:layout_width="match_parent"
         android:layout_height="66dp"
-        android:background="@color/purpleee"
+        android:background="#C4C6E7"
         android:gravity="top"
         android:padding="0dp"
         android:paddingLeft="0dp"
@@ -88,62 +89,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation"/>
 
-    <TextView
-        android:id="@+id/textViewSubjectInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textViewVerbInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.339"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.793" />
-
-    <TextView
-        android:id="@+id/textViewVerbInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textViewObjectInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.339"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.768" />
-
-    <TextView
-        android:id="@+id/textViewObjectInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/SentencebreakdownBackgrnd"
+        android:layout_width="312dp"
+        android:layout_height="224dp"
+        android:background="#D1D3FC"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintVertical_bias="0.374">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/txtviewGenerating.."
+        android:id="@+id/textViewplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Generated Sentence(s): "
-        android:textColor="@color/black"
-        android:textSize="19sp"
+        android:text="play"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="146dp" />
-
-    <Button
-        android:id="@+id/sentenceBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="                                  "
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.912" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

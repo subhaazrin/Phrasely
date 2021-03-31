@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    tools:context=".LanguageChat">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dwwwcon"
@@ -32,12 +32,12 @@
             app:srcCompat="@drawable/small_logo" />
 
         <TextView
-            android:id="@+id/setttingstitle"
-            android:layout_width="163dp"
+            android:id="@+id/langChattitle"
+            android:layout_width="225dp"
             android:layout_height="35dp"
             android:background="#DEDFEA"
             android:fontFamily="sans-serif-light"
-            android:text="       Settings"
+            android:text="  Language Bot Chat"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="normal"
@@ -75,9 +75,7 @@
 
     <ImageView
         android:id="@+id/backicon"
-
         android:onClick="goback"
-
         android:layout_width="41dp"
         android:layout_height="40dp"
         android:layout_marginStart="6dp"
