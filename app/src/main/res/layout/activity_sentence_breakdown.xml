@@ -118,4 +118,28 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.912" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="4dp"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/helpicon" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="0.5dp"
+        app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toEndOf="@+id/textViewplay"
+        app:srcCompat="@drawable/ic_sound" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
