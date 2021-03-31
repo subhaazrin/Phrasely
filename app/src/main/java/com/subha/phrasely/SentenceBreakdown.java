@@ -28,25 +28,25 @@ public class SentenceBreakdown extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.sentence_maker_nav:
+                    case R.id.home_nav:
                         startActivity(new Intent(getApplicationContext()
-                                , PhraseMaker.class));
-                        overridePendingTransition(0, 0);
+                                ,HomePage.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.lang_bot_nav:
                         startActivity(new Intent(getApplicationContext()
-                                , LanguageBot.class));
-                        overridePendingTransition(0, 0);
+                                ,LanguageBot.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.sentence_maker_nav:
                         return true;
 
                     case R.id.settings_nav:
-                        return true;
-
-                    case R.id.home_nav:
                         startActivity(new Intent(getApplicationContext()
-                                , HomePage.class));
-                        overridePendingTransition(0, 0);
+                                ,Settings.class));
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;

@@ -4,6 +4,184 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".HelpSentenceBreakdown">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dwwwcon"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/purpleee"
+        android:gravity="top"
+        android:padding="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logophraser"
+            android:layout_width="64dp"
+            android:layout_height="56dp"
+            android:contentDescription="logo "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/small_logo" />
+
+        <TextView
+            android:id="@+id/helptitle"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="#DEDFEA"
+            android:fontFamily="sans-serif-light"
+            android:text="     Help     "
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/logophraser"
+            app:layout_constraintHorizontal_bias="0.677"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    //nav bar stuff
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/purpleee"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navigation" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lightpurple"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dwwwcon" />
+
+    <ImageView
+        android:id="@+id/backicon"
+
+        android:layout_width="41dp"
+
+        android:layout_height="40dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:onClick="goback"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/back_logo" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/helpbackground"
+        android:layout_width="273dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="66dp"
+        android:background="#D1D3FC"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/noun"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/pronoun"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:background="@color/verb"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="159dp">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:background="@color/adjective"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="112dp">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:background="@color/adverb"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="207dp">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:background="@color/preposition"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="255dp">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:background="@color/interjection"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="302dp">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="94dp"
+            android:layout_height="33dp"
+            android:background="@color/conjunction"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="351dp">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

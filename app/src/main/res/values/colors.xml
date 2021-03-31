@@ -6,4 +6,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purpleee"> #C4C6E7</color>
     <color name="lightpurple">#F3EDFF</color>
+    <color name="adjective">#ACE0CA</color>
+    <color name="verb">#D3BAE5</color>
+    <color name="noun">#FEF49E</color>
+    <color name="pronoun">#E5E1FF</color>
+    <color name="adverb">#F8B5A0</color>
+    <color name="preposition">#CFF3B9</color>
+    <color name="conjunction">#FFB2CE</color>
+    <color name="interjection">#FFC480</color>
 </resources>
