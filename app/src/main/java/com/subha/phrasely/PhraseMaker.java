@@ -21,6 +21,10 @@ import cz.msebera.android.httpclient.Header;
 
 public class PhraseMaker extends AppCompatActivity {
 
+    String sub_int = "";
+    String verb_int = "";
+    String obj_int = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +40,63 @@ public class PhraseMaker extends AppCompatActivity {
         generatebtn.setOnClickListener(new View.OnClickListener(){
             @Override
                     public void onClick(View v){
-                String sub_int = subjectInput.getText().toString();
-                String verb_int = verbInput.getText().toString();
-                String obj_int = objectInput.getText().toString();
+
+                //taking input from user
+                sub_int = subjectInput.getText().toString();
+                verb_int = verbInput.getText().toString();
+                obj_int = objectInput.getText().toString();
 
                 Intent generatesentence = new Intent (PhraseMaker.this, GeneratedSentence.class);
                 generatesentence.putExtra("subject", sub_int);
                 generatesentence.putExtra("verb", verb_int);
                 generatesentence.putExtra("object", obj_int);
                 startActivity(generatesentence);
+
+                //Api stuff
+                AsyncHttpClient client = new AsyncHttpClient();
+                client.addHeader("x-rapidapi-key", "cdd85fe9c4msh0221571fabec381p19a98bjsn16a1d4a2d848");
+                client.addHeader("x-rapidapi-host", "linguatools-sentence-generating.p.rapidapi.com");
+
+                final String OBJECT = "object=";
+                final String SUBJECT = "&subject=";
+                final String VERB = "&verb=";
+                final String URL_PREFIX = "https://linguatools-sentence-generating.p.rapidapi.com/realise?";
+
+                String url = URL_PREFIX + OBJECT + obj_int + SUBJECT + sub_int + VERB + verb_int ;
+
+                client.get(url, new AsyncHttpResponseHandler() {
+
+                    @Override
+                    public void onStart() {
+                        // called before request is started
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        Context message = getApplicationContext();
+                        String response = new String(responseBody);
+                        CharSequence text = new String("success" + response);
+
+                        int duration= Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(message, text, duration);
+                        toast.show();
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Context message = getApplicationContext();
+                        CharSequence text = new String("failure"+ responseBody);
+
+                        int duration= Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(message, text, duration);
+                        toast.show();
+                    }
+
+                    @Override
+                    public void onRetry(int retryNo) {
+                        // called when request is retried
+                    }
+                });
 
             }
         });
@@ -58,44 +110,7 @@ public class PhraseMaker extends AppCompatActivity {
             startActivity(generatesentence);
         } */
 
-        //Api stuff
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.addHeader("x-rapidapi-key", "cdd85fe9c4msh0221571fabec381p19a98bjsn16a1d4a2d848");
-        client.addHeader("x-rapidapi-host", "linguatools-sentence-generating.p.rapidapi.com");
 
-         /*   final String OBJECT = "realise?object=";
-            final String SUBJECT = "&subject=";
-            final String VERB = "&verb=";
-            final String URL_PREFIX = "https://linguatools-sentence-generating.p.rapidapi.com/";
-
-            String url = URL_PREFIX + OBJECT + obj_int + SUBJECT + sub_int + VERB + verb_int ;
-*/
-        client.get("https://linguatools-sentence-generating.p.rapidapi.com/realise?object=thief&subject=police&verb=arrest", new AsyncHttpResponseHandler() {
-            @Override
-            public void onStart() {
-                // called before request is started
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Context message = getApplicationContext();
-                CharSequence text = new String(responseBody);
-
-                int duration= Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(message, text, duration);
-                toast.show();
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-            }
-
-            @Override
-            public void onRetry(int retryNo) {
-                // called when request is retried
-            }
-        });
 
         //next steps:
         //once button clicked, generate url for the words.

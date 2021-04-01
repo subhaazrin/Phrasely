@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,10 +16,24 @@ import org.w3c.dom.Text;
 
 public class GeneratedSentence extends AppCompatActivity {
 
+    private TextView subject, verb, object;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generated_sentence);
+
+        subject = findViewById(R.id.textViewSubjectInput);
+        object = findViewById(R.id.textViewObjectInput);
+        verb = findViewById(R.id.textViewVerbInput);
+
+        String Subject = getIntent().getStringExtra("subject");
+        String Verb = getIntent().getStringExtra("verb");
+        String Object = getIntent().getStringExtra("object");
+
+        subject.setText(Subject);
+        verb.setText(Verb);
+        object.setText(Object);
 
         //when sentence button clicked
         Button sentencebtn = findViewById(R.id.sentenceBtn);
