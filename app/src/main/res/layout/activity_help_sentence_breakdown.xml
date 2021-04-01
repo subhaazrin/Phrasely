@@ -94,15 +94,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/helpbackground"
-        android:layout_width="273dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="66dp"
+        android:layout_width="304dp"
+        android:layout_height="471dp"
+        android:layout_marginBottom="44dp"
         android:background="#D1D3FC"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -110,7 +111,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:background="@color/noun"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -123,7 +124,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:background="@color/pronoun"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
@@ -136,7 +137,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:background="@color/verb"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
@@ -149,7 +150,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:background="@color/adjective"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
@@ -162,7 +163,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:background="@color/adverb"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
@@ -175,7 +176,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:background="@color/preposition"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
@@ -188,7 +189,7 @@
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:background="@color/interjection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
@@ -196,14 +197,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout12"
             android:layout_width="94dp"
             android:layout_height="33dp"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:background="@color/conjunction"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout10"
+            app:layout_constraintVertical_bias="0.0">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -211,12 +215,12 @@
             android:id="@+id/textViewnounhelp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="36dp"
             android:text="noun"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.219"
+            app:layout_constraintHorizontal_bias="0.221"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -224,11 +228,92 @@
             android:id="@+id/textViewpronounhelp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:text="pronoun"
             android:textColor="#000000"
             android:textSize="18sp"
-            tools:layout_editor_absoluteX="162dp"
-            tools:layout_editor_absoluteY="69dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.281"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/textViewnounhelp" />
+
+        <TextView
+            android:id="@+id/textViewadjectivehelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="adjective"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/textViewpronounhelp" />
+
+        <TextView
+            android:id="@+id/textViewverbhelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="verb"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/textViewadjectivehelp" />
+
+        <TextView
+            android:id="@+id/textViewadverbhelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="adverb"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
+            app:layout_constraintTop_toBottomOf="@+id/textViewverbhelp" />
+
+        <TextView
+            android:id="@+id/textViewprepositionhelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="preposition"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.369"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout8"
+            app:layout_constraintTop_toBottomOf="@+id/textViewadverbhelp" />
+
+        <TextView
+            android:id="@+id/textViewinterjectionhelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="interjection"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.369"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout10"
+            app:layout_constraintTop_toBottomOf="@+id/textViewprepositionhelp" />
+
+        <TextView
+            android:id="@+id/textViewconjunctionhelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="conjunction"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.391"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout12"
+            app:layout_constraintTop_toBottomOf="@+id/textViewinterjectionhelp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

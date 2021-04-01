@@ -17,12 +17,11 @@ public class HelpSentenceBreakdown extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_sentence_breakdown);
 
-
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        //set settings selected for this page
-        bottomNavigationView.setSelectedItemId(R.id.settings_nav);
+        //set sentence maker selected for this page
+        bottomNavigationView.setSelectedItemId(R.id.sentence_maker_nav);
 
         //perfom ItemSelectedListener Event
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -31,14 +30,14 @@ public class HelpSentenceBreakdown extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.home_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,HomePage.class));
-                        overridePendingTransition(0,0);
+                                , HomePage.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.lang_bot_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,LanguageBot.class));
-                        overridePendingTransition(0,0);
+                                , LanguageBot.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.sentence_maker_nav:
@@ -46,8 +45,8 @@ public class HelpSentenceBreakdown extends AppCompatActivity {
 
                     case R.id.settings_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,Settings.class));
-                        overridePendingTransition(0,0);
+                                , Settings.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -58,10 +57,12 @@ public class HelpSentenceBreakdown extends AppCompatActivity {
 
     }
 
-    //method for going to sentence breakdown from backbutton
+    //method for going back
     public void goback(View v) {
-        //launching sentence beakdown activity
-        Intent helptobreakdown = new Intent(this, SentenceBreakdown.class);
-        startActivity(helptobreakdown);
+        //launching phraser main activity
+        Intent helpbreakdowntobreakdown = new Intent(this, SentenceBreakdown.class);
+        startActivity(helpbreakdowntobreakdown);
     }
+
 }
+

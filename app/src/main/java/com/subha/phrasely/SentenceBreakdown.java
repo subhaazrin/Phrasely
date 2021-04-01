@@ -63,4 +63,10 @@ public class SentenceBreakdown extends AppCompatActivity {
         Intent breakdowntogenerated = new Intent(this, GeneratedSentence.class);
         startActivity( breakdowntogenerated);
     }
+
+    public void gohelp(View v) {
+        //go to help activity
+        Intent breakdowntohelp = new Intent(this, HelpSentenceBreakdown.class);
+        startActivity(breakdowntohelp);
+    }
 }

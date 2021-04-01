@@ -119,11 +119,14 @@
         app:layout_constraintVertical_bias="0.912" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_help"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginBottom="4dp"
         android:rotation="90"
+
+        android:onClick="gohelp"
+
         app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.873"
@@ -137,7 +140,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="0.5dp"
         app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/img_help"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toEndOf="@+id/textViewplay"
         app:srcCompat="@drawable/ic_sound" />

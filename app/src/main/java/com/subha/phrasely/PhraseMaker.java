@@ -17,6 +17,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.loopj.android.http.*;
 
+import org.json.JSONObject;
+
 import cz.msebera.android.httpclient.Header;
 
 public class PhraseMaker extends AppCompatActivity {
@@ -74,8 +76,20 @@ public class PhraseMaker extends AppCompatActivity {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                         Context message = getApplicationContext();
-                        String response = new String(responseBody);
+                        String response = new String(responseBody); //disregard for a while
                         CharSequence text = new String("success" + response);
+                        /*
+                        //byte[] to JSON object
+                        //result: "OK", sentence: "e;fjweif"
+
+                        //Main goal: take Json object and get the sentence in string (to do)
+
+                       // JSONObject responseJSON = responseBody convert to json
+
+                       //What subha tried:
+                       //JSONObject sentencejson = new JSONObject(response);
+
+                        String sentence = sentencejson.getString("sentence"); */
 
                         int duration= Toast.LENGTH_SHORT;
                         Toast toast = Toast.makeText(message, text, duration);
@@ -85,7 +99,8 @@ public class PhraseMaker extends AppCompatActivity {
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                         Context message = getApplicationContext();
-                        CharSequence text = new String("failure"+ responseBody);
+                        String response = new String(responseBody);
+                        CharSequence text = new String("failure"+ response);
 
                         int duration= Toast.LENGTH_SHORT;
                         Toast toast = Toast.makeText(message, text, duration);
