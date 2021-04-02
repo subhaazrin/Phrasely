@@ -80,13 +80,13 @@ public class PhraseMaker extends AppCompatActivity {
                         CharSequence text = new String("success" + response);
                         /*
                         //byte[] to JSON object
-                        //result: "OK", sentence: "e;fjweif"
 
-                        //Main goal: take Json object and get the sentence in string (to do)
+                        //responsebody-->    result: "OK", sentence: "e;fjweif"
 
+                        //Main goal: take Json object and get the sentence in string
                        // JSONObject responseJSON = responseBody convert to json
 
-                       //What subha tried:
+                       //What I tried:
                        //JSONObject sentencejson = new JSONObject(response);
 
                         String sentence = sentencejson.getString("sentence"); */
