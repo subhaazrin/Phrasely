@@ -16,24 +16,29 @@ import org.w3c.dom.Text;
 
 public class GeneratedSentence extends AppCompatActivity {
 
-    private TextView subject, verb, object;
+    // private TextView subject, verb, object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generated_sentence);
 
-        subject = findViewById(R.id.textViewSubjectInput);
-        object = findViewById(R.id.textViewObjectInput);
-        verb = findViewById(R.id.textViewVerbInput);
+        //subject = findViewById(R.id.textViewSubjectInput);
+        //object = findViewById(R.id.textViewObjectInput);
+        //verb = findViewById(R.id.textViewVerbInput);
 
-        String Subject = getIntent().getStringExtra("subject");
-        String Verb = getIntent().getStringExtra("verb");
-        String Object = getIntent().getStringExtra("object");
+        Button sentencee = findViewById(R.id.sentenceBtn);
 
-        subject.setText(Subject);
-        verb.setText(Verb);
-        object.setText(Object);
+        // String Subject = getIntent().getStringExtra("subject");
+        //String Verb = getIntent().getStringExtra("verb");
+        //String Object = getIntent().getStringExtra("object");
+
+        String sentence = getIntent().getStringExtra(("sentence"));
+
+        sentencee.setText(sentence);
+        //subject.setText(Subject);
+        // verb.setText(Verb);
+        //object.setText(Object);
 
         //when sentence button clicked
         Button sentencebtn = findViewById(R.id.sentenceBtn);

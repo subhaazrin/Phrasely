@@ -88,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation"/>
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/textViewSubjectInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
         app:layout_constraintStart_toEndOf="@+id/textViewVerbInput"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.53" />
-
+-->
     <TextView
         android:id="@+id/txtviewGenerating.."
         android:layout_width="wrap_content"
@@ -145,10 +145,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="*generated Sentence output*"
+        app:cornerRadius="25dp"
+        android:textColor="#000000"
+        app:backgroundTint="#CBCDEC"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.168" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

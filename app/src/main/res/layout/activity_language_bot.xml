@@ -133,6 +133,7 @@
         android:fontFamily="sans-serif-condensed"
         android:includeFontPadding="false"
         android:text="Start a Chat"
+        app:cornerRadius="25dp"
         android:textSize="18sp"
         android:textStyle="normal"
         app:backgroundTint="#D3C7EC"

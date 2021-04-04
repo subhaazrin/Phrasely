@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.loopj.android.http.*;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
@@ -41,18 +43,13 @@ public class PhraseMaker extends AppCompatActivity {
 
         generatebtn.setOnClickListener(new View.OnClickListener(){
             @Override
-                    public void onClick(View v){
+            public void onClick(View v){
 
                 //taking input from user
                 sub_int = subjectInput.getText().toString();
                 verb_int = verbInput.getText().toString();
                 obj_int = objectInput.getText().toString();
 
-                Intent generatesentence = new Intent (PhraseMaker.this, GeneratedSentence.class);
-                generatesentence.putExtra("subject", sub_int);
-                generatesentence.putExtra("verb", verb_int);
-                generatesentence.putExtra("object", obj_int);
-                startActivity(generatesentence);
 
                 //Api stuff
                 AsyncHttpClient client = new AsyncHttpClient();
@@ -77,23 +74,33 @@ public class PhraseMaker extends AppCompatActivity {
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                         Context message = getApplicationContext();
                         String response = new String(responseBody); //disregard for a while
-                        CharSequence text = new String("success" + response);
-                        /*
+
+
                         //byte[] to JSON object
 
                         //responsebody-->    result: "OK", sentence: "e;fjweif"
 
                         //Main goal: take Json object and get the sentence in string
-                       // JSONObject responseJSON = responseBody convert to json
+                        // JSONObject responseJSON = responseBody convert to json
+                        try {
+                            JSONObject sentencejson = new JSONObject(response);
+                            String sentence = sentencejson.getString("sentence");
+                            CharSequence text = new String("success" + sentence);
 
-                       //What I tried:
-                       //JSONObject sentencejson = new JSONObject(response);
+                            Intent generatesentence = new Intent (PhraseMaker.this, GeneratedSentence.class);
+                            generatesentence.putExtra("sentence", sentence);
+                            // generatesentence.putExtra("verb", verb_int);
+                            // generatesentence.putExtra("object", obj_int);
+                            startActivity(generatesentence);
 
-                        String sentence = sentencejson.getString("sentence"); */
+                            int duration= Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(message, text, duration);
+                            toast.show();
 
-                        int duration= Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(message, text, duration);
-                        toast.show();
+                        } catch (JSONException e) {
+                            Log.d("Error", e.toString());
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
