@@ -10,8 +10,7 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Settings extends AppCompatActivity {
-
+public class TermsAndConditions extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,17 +57,10 @@ public class Settings extends AppCompatActivity {
 
     }
 
-    //method for going to homepage from backbutton
+    //method for going back from backbutton
     public void goback(View v) {
-        //launching Home page activity
-        Intent settingstohome = new Intent(this, HomePage.class);
-        startActivity(settingstohome);
-     }
-
-    //method for going to help page from helpbtn
-    public void gohelpsettings(View v) {
-        //launching Home page activity
-        Intent settingstohelpsettings = new Intent(this, HelpSettings.class);
-        startActivity(settingstohelpsettings);
+        //launching Settngs activity
+        Intent termstosettings = new Intent(this, Settings.class);
+        startActivity(termstosettings);
     }
-    }
+}
