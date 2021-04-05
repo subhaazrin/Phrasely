@@ -46,6 +46,7 @@
             app:layout_constraintHorizontal_bias="0.677"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     //nav bar stuff

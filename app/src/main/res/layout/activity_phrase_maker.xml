@@ -36,23 +36,6 @@
         app:srcCompat="@drawable/back_logo" />
 
 
-
-    <Button
-        android:id="@+id/inputbtn"
-        android:layout_width="223dp"
-        android:layout_height="49dp"
-        android:text="Generate Sentence"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:backgroundTint="@color/purpleee"
-        app:cornerRadius="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dwww"
         android:layout_width="match_parent"
@@ -108,115 +91,125 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation" />
 
-    <TextView
-        android:id="@+id/textViewSubject"
-        android:layout_width="194dp"
-        android:layout_height="31dp"
-        android:text=" Subject:"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/subjectInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textviewPhraserInstructions" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="558dp"
+        android:fillViewport="false"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="2dp">
 
-    <TextView
-        android:id="@+id/textViewVerb"
-        android:layout_width="194dp"
-        android:layout_height="31dp"
-        android:text=" Verb:"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/VerbInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subjectInput" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/subjectInput"
-        android:layout_width="309dp"
-        android:layout_height="40dp"
-        android:background="@color/lightpurple"
-        android:hint="  Enter a subject..."
-        android:inputType="text"
-        android:maxLines="1"
-        android:shadowColor="@color/lightpurple"
-        android:textColorHighlight="@color/lightpurple"
-        android:textColorHint="#807777"
-        android:textColorLink="#5F0C6E"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewVerb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSubject" />
+            <TextView
+                android:id="@+id/textviewPhraserInstructions"
+                android:layout_width="391dp"
+                android:layout_height="66dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@color/purpleee"
+                android:paddingLeft="10dp"
+                android:paddingRight="5dp"
+                android:text="Fill in the following fields to generate a sentence:"
+                android:textColor="@color/black"
+                android:textSize="23sp" />
 
-    <EditText
-        android:id="@+id/VerbInput"
-        android:layout_width="309dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="244dp"
-        android:background="@color/lightpurple"
-        android:hint="  Enter a verb..."
-        android:inputType="text"
-        android:maxLines="1"
-        android:shadowColor="@color/lightpurple"
-        android:textColorHighlight="@color/lightpurple"
-        android:textColorHint="#807777"
-        android:textColorLink="#5F0C6E"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewObject"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            <TextView
+                android:id="@+id/textViewSubject"
+                android:layout_width="194dp"
+                android:layout_height="31dp"
+                android:text=" Subject:"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"/>
 
-    <TextView
-        android:id="@+id/textViewObject"
-        android:layout_width="194dp"
-        android:layout_height="31dp"
-        android:text=" Object:"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/ObjectInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VerbInput" />
+            <EditText
+                android:id="@+id/subjectInput"
+                android:layout_width="309dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightpurple"
+                android:hint="  Enter a subject..."
+                android:inputType="text"
+                android:maxLines="1"
+                android:shadowColor="@color/lightpurple"
+                android:textColorHighlight="@color/lightpurple"
+                android:textColorHint="#807777"
+                android:textColorLink="#5F0C6E"
+                android:textSize="22sp" />
 
-    <EditText
-        android:id="@+id/ObjectInput"
-        android:layout_width="309dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="28dp"
-        android:background="@color/lightpurple"
-        android:hint="  Enter an object..."
-        android:inputType="text"
-        android:maxLines="1"
-        android:shadowColor="@color/lightpurple"
-        android:textColorHighlight="@color/lightpurple"
-        android:textColorHint="#807777"
-        android:textColorLink="#5F0C6E"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputbtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewObject" />
+            <TextView
+                android:id="@+id/textViewVerb"
+                android:layout_width="194dp"
+                android:layout_height="31dp"
+                android:text=" Verb:"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:layout_marginTop="20"
+                android:layout_marginLeft="50dp"/>
 
-    <TextView
-        android:id="@+id/textviewPhraserInstructions"
-        android:layout_width="391dp"
-        android:layout_height="66dp"
-        android:background="@color/purpleee"
-        android:paddingLeft="10dp"
-        android:paddingRight="5dp"
-        android:text="Fill in the following fields to generate a sentence:"
-        android:textColor="@color/black"
-        android:textSize="23sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewSubject"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            <EditText
+                android:id="@+id/VerbInput"
+                android:layout_width="309dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightpurple"
+                android:hint="  Enter a verb..."
+                android:inputType="text"
+                android:maxLines="1"
+                android:shadowColor="@color/lightpurple"
+                android:textColorHighlight="@color/lightpurple"
+                android:textColorHint="#807777"
+                android:textColorLink="#5F0C6E"
+                android:textSize="22sp" />
 
+            <TextView
+                android:id="@+id/textViewObject"
+                android:layout_width="194dp"
+                android:layout_height="31dp"
+                android:text=" Object:"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"/>
+
+            <EditText
+                android:id="@+id/ObjectInput"
+                android:layout_width="309dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="28dp"
+                android:background="@color/lightpurple"
+                android:layout_marginTop="20dp"
+                android:hint="  Enter an object..."
+                android:inputType="text"
+                android:maxLines="1"
+                android:shadowColor="@color/lightpurple"
+                android:textColorHighlight="@color/lightpurple"
+                android:textColorHint="#807777"
+                android:textColorLink="#5F0C6E"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/inputbtn"
+                android:layout_width="223dp"
+                android:layout_height="49dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Generate Sentence"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:backgroundTint="@color/purpleee"
+                app:cornerRadius="25dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

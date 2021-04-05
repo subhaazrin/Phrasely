@@ -75,17 +75,11 @@ public class PhraseMaker extends AppCompatActivity {
                         Context message = getApplicationContext();
                         String response = new String(responseBody); //disregard for a while
 
-
-                        //byte[] to JSON object
-
-                        //responsebody-->    result: "OK", sentence: "e;fjweif"
-
-                        //Main goal: take Json object and get the sentence in string
-                        // JSONObject responseJSON = responseBody convert to json
                         try {
                             JSONObject sentencejson = new JSONObject(response);
                             String sentence = sentencejson.getString("sentence");
-                            CharSequence text = new String("success" + sentence);
+                            //CharSequence text = new String("success" + sentence);
+                            CharSequence text = new String("Sentence generated successfully!");
 
                             Intent generatesentence = new Intent (PhraseMaker.this, GeneratedSentence.class);
                             generatesentence.putExtra("sentence", sentence);
@@ -106,8 +100,8 @@ public class PhraseMaker extends AppCompatActivity {
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                         Context message = getApplicationContext();
-                        String response = new String(responseBody);
-                        CharSequence text = new String("failure"+ response);
+                        //String response = new String(responseBody);
+                        CharSequence text = new String("Invalid Input");
 
                         int duration= Toast.LENGTH_SHORT;
                         Toast toast = Toast.makeText(message, text, duration);
