@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Phrasely</string>
+    <string-array name="sentenceOptionsArray">
+        <item>Declarative</item>
+        <item>Polar(yes-no) Question</item>
+        <item>What? (object)</item>
+        <item>Who? (subject)</item>
+    </string-array>
 </resources>

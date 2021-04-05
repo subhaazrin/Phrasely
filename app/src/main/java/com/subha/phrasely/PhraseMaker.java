@@ -9,8 +9,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,16 +27,144 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class PhraseMaker extends AppCompatActivity {
+public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String sub_int = "";
     String verb_int = "";
     String obj_int = "";
 
+    //subject determiner (a, the , nothing)
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+
+            case R.id.nothingDeterminerSubject:
+                if (checked)
+                    break;
+
+            case R.id.theDeterminerSubject:
+                if (checked)
+                    break;
+
+            case R.id.aDeterminerSubject:
+                if (checked)
+                    break;
+        }
+    }
+
+    //object determiner (a, the, nothing)
+    public void onRadioButtonClickedOb(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+
+            case R.id.nothingDeterminerObject:
+                if (checked)
+                    break;
+
+            case R.id.theDeterminerObject:
+                if (checked)
+                    break;
+
+            case R.id.aDeterminerObbject:
+                if (checked)
+                    break;
+        }
+    }
+
+    //Tense determiner (past, present, future)
+    public void onRadioButtonClickedTense(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+
+            case R.id.futureTenseRadio:
+                if (checked)
+                    break;
+
+            case R.id.presentTenseRadio:
+                if (checked)
+                    break;
+
+            case R.id.pastTenseRadio:
+                if (checked)
+                    break;
+        }
+    }
+
+    //Subject number (singular/plural)
+    public void onRadioButtonClickedSubjectNum(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+
+            case R.id.SingleSubjectRadio:
+                if (checked)
+                    break;
+
+            case R.id.PluralSubjectRadio:
+                if (checked)
+                    break;
+
+        }
+    }
+
+    //Object number (singular/plural)
+    public void onRadioButtonClickedObjectNum(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+
+            case R.id.SingleObjectRadio:
+                if (checked)
+                    break;
+
+            case R.id.PluralObjectRadio:
+                if (checked)
+                    break;
+
+        }
+    }
+
+
+    Spinner sentenceType;
+    //String[] sentence_type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phrase_maker);
+
+
+        sentenceType = (Spinner)findViewById(R.id.sentenceSpinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sentenceOptionsArray, android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        // Apply the adapter to the spinner
+        sentenceType.setAdapter(adapter);
+
+        //sentence_type = getResources().getStringArray(R.array.sentenceOptionsArray);
+        //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sentence_type);
+        //sentenceType.OnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        Spinner spinner = (Spinner) findViewById(R.id.sentenceSpinner);
+        spinner.setOnItemSelectedListener(this);
+
 
         //taking input from user
 
@@ -179,5 +311,13 @@ public class PhraseMaker extends AppCompatActivity {
         Intent phrasertohome = new Intent(this, HomePage.class);
         startActivity(phrasertohome);
     }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(PhraseMaker.this, "Successful SentenceType!", Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

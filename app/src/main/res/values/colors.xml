@@ -14,4 +14,6 @@
     <color name="preposition">#CFF3B9</color>
     <color name="conjunction">#FFB2CE</color>
     <color name="interjection">#FFC480</color>
+    <color name="middlePurple">#E3E4ED</color>
+    <color name="radioColorPurple">#9092B5</color>
 </resources>

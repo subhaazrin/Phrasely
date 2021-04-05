@@ -97,7 +97,9 @@
         android:fillViewport="false"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:layout_editor_absoluteX="2dp">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="137dp"
+        android:scrollbarSize="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,11 +123,94 @@
                 android:id="@+id/textViewSubject"
                 android:layout_width="194dp"
                 android:layout_height="31dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
                 android:text=" Subject:"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="22sp" />
+
+            <RadioGroup
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="50dp"/>
+                android:background="@color/middlePurple"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/SingleSubjectRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:buttonTint="@color/purpleee"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClickedSubjectNum"
+                    android:text="Singular"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/PluralSubjectRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedSubjectNum"
+                    android:text="Plural"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+            </RadioGroup>
+
+
+            <RadioGroup
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/middlePurple"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/aDeterminerSubject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="a"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/theDeterminerSubject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="the"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/nothingDeterminerSubject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:buttonTint="@color/purpleee"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="(none)"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+            </RadioGroup>
+
 
             <EditText
                 android:id="@+id/subjectInput"
@@ -147,11 +232,11 @@
                 android:id="@+id/textViewVerb"
                 android:layout_width="194dp"
                 android:layout_height="31dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
                 android:text=" Verb:"
                 android:textColor="@color/black"
-                android:textSize="22sp"
-                android:layout_marginTop="20"
-                android:layout_marginLeft="50dp"/>
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/VerbInput"
@@ -173,20 +258,102 @@
                 android:id="@+id/textViewObject"
                 android:layout_width="194dp"
                 android:layout_height="31dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
                 android:text=" Object:"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="22sp" />
+
+            <RadioGroup
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="50dp"/>
+                android:background="@color/middlePurple"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/SingleObjectRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:buttonTint="@color/purpleee"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClickedObjectNum"
+                    android:text="Singular"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/PluralObjectRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedObjectNum"
+                    android:text="Plural"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+            </RadioGroup>
+
+
+            <RadioGroup
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/middlePurple"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/aDeterminerObbject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedOb"
+                    android:text="a"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/theDeterminerObject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedOb"
+                    android:text="the"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/nothingDeterminerObject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:buttonTint="@color/purpleee"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClickedOb"
+                    android:text="(none)"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+            </RadioGroup>
 
             <EditText
                 android:id="@+id/ObjectInput"
                 android:layout_width="309dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="28dp"
-                android:background="@color/lightpurple"
                 android:layout_marginTop="20dp"
+                android:background="@color/lightpurple"
                 android:hint="  Enter an object..."
                 android:inputType="text"
                 android:maxLines="1"
@@ -196,12 +363,87 @@
                 android:textColorLink="#5F0C6E"
                 android:textSize="22sp" />
 
+            <TextView
+                android:id="@+id/textViewSentencetype"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:text=" Sentence Type:"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <Spinner
+                android:id="@+id/sentenceSpinner"
+                android:layout_width="309dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/textViewTense"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:text=" Tense:"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <RadioGroup
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/middlePurple"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/pastTenseRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedTense"
+                    android:text="Past"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/presentTenseRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedTense"
+                    android:text="Present"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/futureTenseRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:buttonTint="@color/purpleee"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClickedTense"
+                    android:text="Future"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+            </RadioGroup>
+
             <Button
                 android:id="@+id/inputbtn"
                 android:layout_width="223dp"
                 android:layout_height="49dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:text="Generate Sentence"
                 android:textColor="#000000"
                 android:textSize="16sp"
