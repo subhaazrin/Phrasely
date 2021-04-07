@@ -32,6 +32,13 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
     String sub_int = "";
     String verb_int = "";
     String obj_int = "";
+    String subjnum_int = "singular";
+    String objnum_int = "singular";
+    String subjdet_int = "-";
+    String objdet_int = "-";
+    String tense_int = "present";
+    String sentencetype_int = "";
+    String negated_int="";
 
     //subject determiner (a, the , nothing)
     public void onRadioButtonClicked(View view) {
@@ -42,15 +49,21 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
         switch(view.getId()) {
 
             case R.id.nothingDeterminerSubject:
-                if (checked)
+                if (checked){
+                    subjdet_int = "-";
+                }
                     break;
 
             case R.id.theDeterminerSubject:
-                if (checked)
+                if (checked){
+                    subjdet_int = "the";
+                }
                     break;
 
             case R.id.aDeterminerSubject:
-                if (checked)
+                if (checked){
+                    subjdet_int = "a";
+                }
                     break;
         }
     }
@@ -64,15 +77,21 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
         switch(view.getId()) {
 
             case R.id.nothingDeterminerObject:
-                if (checked)
+                if (checked){
+                    objdet_int="-";
+                }
                     break;
 
             case R.id.theDeterminerObject:
-                if (checked)
+                if (checked){
+                    objdet_int = "the";
+                }
                     break;
 
             case R.id.aDeterminerObbject:
-                if (checked)
+                if (checked){
+                    objdet_int = "a";
+                }
                     break;
         }
     }
@@ -86,15 +105,21 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
         switch(view.getId()) {
 
             case R.id.futureTenseRadio:
-                if (checked)
+                if (checked){
+                    tense_int = "future";
+                }
                     break;
 
             case R.id.presentTenseRadio:
-                if (checked)
+                if (checked){
+                    tense_int = "present";
+                }
                     break;
 
             case R.id.pastTenseRadio:
-                if (checked)
+                if (checked){
+                    tense_int = "past";
+                }
                     break;
         }
     }
@@ -108,11 +133,15 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
         switch(view.getId()) {
 
             case R.id.SingleSubjectRadio:
-                if (checked)
+                if (checked){
+                    subjnum_int = "singular";
+                }
                     break;
 
             case R.id.PluralSubjectRadio:
-                if (checked)
+                if (checked){
+                    subjnum_int = "plural";
+                }
                     break;
 
         }
@@ -127,16 +156,41 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
         switch(view.getId()) {
 
             case R.id.SingleObjectRadio:
-                if (checked)
+                if (checked){
+                    objnum_int="singular";
+                }
                     break;
 
             case R.id.PluralObjectRadio:
-                if (checked)
+                if (checked){
+                    objnum_int="plural";
+                }
                     break;
 
         }
     }
+    //negation determiner (yes/no)
+    public void onRadioButtonClickedNegated(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
 
+        // Check which radio button was clicked
+        switch(view.getId()) {
+
+            case R.id.YesNegateRadio:
+                if (checked){
+                    negated_int = "negated";
+                }
+                break;
+
+            case R.id.NoNegateRadio:
+                if (checked){
+                    negated_int = "";
+                }
+                break;
+
+        }
+    }
 
     Spinner sentenceType;
     //String[] sentence_type;
@@ -191,9 +245,16 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
                 final String OBJECT = "object=";
                 final String SUBJECT = "&subject=";
                 final String VERB = "&verb=";
+                final String SUBJDET = "&subjdet=";
+                final String OBJDET = "&objdet=";
+                final String OBJNUM = "&objnum=";
+                final String SUBJNUM = "&subjnum=";
+                final String TENSE = "&tense=";
+                final String SENTENCETYPE = "&sentencetype=";
+                final String NEGATED = "&negated=";
                 final String URL_PREFIX = "https://linguatools-sentence-generating.p.rapidapi.com/realise?";
 
-                String url = URL_PREFIX + OBJECT + obj_int + SUBJECT + sub_int + VERB + verb_int ;
+                String url = URL_PREFIX + OBJECT + obj_int + SUBJECT + sub_int + VERB + verb_int + SUBJDET + subjdet_int + OBJDET + objdet_int + SUBJNUM + subjnum_int + OBJNUM + objnum_int + TENSE + tense_int + SENTENCETYPE + sentencetype_int + NEGATED + negated_int;
 
                 client.get(url, new AsyncHttpResponseHandler() {
 
@@ -220,7 +281,7 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
                             startActivity(generatesentence);
 
                             int duration= Toast.LENGTH_SHORT;
-                            Toast toast = Toast.makeText(message, text, duration);
+                            Toast toast = Toast.makeText(message, url + text, duration);
                             toast.show();
 
                         } catch (JSONException e) {
@@ -313,7 +374,20 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(PhraseMaker.this, "Successful SentenceType!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(PhraseMaker.this, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+        String itemOnSentence = parent.getItemAtPosition(position).toString();
+        if( itemOnSentence.equals("Declarative")){
+            sentencetype_int = "";
+        }
+        else if(itemOnSentence.equals("Polar(yes-no) Question")){
+            sentencetype_int = "yesno";
+        }
+        else if(itemOnSentence.equals("What? (object)")){
+            sentencetype_int = "whatobj";
+        }
+        else if(itemOnSentence.equals("Who? (subject)")){
+            sentencetype_int = "whosubj";
+        }
     }
 
     @Override

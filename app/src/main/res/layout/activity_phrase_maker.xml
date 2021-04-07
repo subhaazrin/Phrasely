@@ -416,6 +416,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
+                    android:checked="true"
                     android:buttonTint="@color/purpleee"
                     android:onClick="onRadioButtonClickedTense"
                     android:text="Present"
@@ -429,7 +430,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:buttonTint="@color/purpleee"
-                    android:checked="true"
                     android:onClick="onRadioButtonClickedTense"
                     android:text="Future"
                     android:textColorHighlight="#FFFFFF"
@@ -437,6 +437,52 @@
                     android:textSize="20sp"
                     app:buttonTint="@color/radioColorPurple" />
             </RadioGroup>
+
+            <TextView
+                android:id="@+id/textViewNegated"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:text=" Negation:"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <RadioGroup
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/middlePurple"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/YesNegateRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedNegated"
+                    android:text="Yes"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+                <RadioButton
+                    android:id="@+id/NoNegateRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:checked="true"
+                    android:buttonTint="@color/purpleee"
+                    android:onClick="onRadioButtonClickedNegated"
+                    android:text="No"
+                    android:textColorLink="@color/purpleee"
+                    android:textSize="20sp"
+                    app:buttonTint="@color/radioColorPurple" />
+
+            </RadioGroup>
+
 
             <Button
                 android:id="@+id/inputbtn"
