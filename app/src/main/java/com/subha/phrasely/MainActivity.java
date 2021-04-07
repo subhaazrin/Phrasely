@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //making title in top left corner
-        setTitle("Launch Sign In Page");
+        setTitle("Launch Sign In Page");//commenting
     }
 
     //method for going to homepage
