@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,6 +17,16 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        //test
+        Button button = (Button) findViewById(R.id.testbtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test();
+            }
+        });
+        //test
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -64,6 +75,14 @@ public class HomePage extends AppCompatActivity {
         startActivity(phrasemaker);
 
     }
+
+
+    //test
+    public void test(){Intent intent = new Intent(this, WordBreakdown.class);
+        startActivity(intent);
+    }
+    //test
+
 
     //method for going to LanguageBot
     public void goLanguageBot(View v){

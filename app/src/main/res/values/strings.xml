@@ -6,4 +6,9 @@
         <item>What? (object)</item>
         <item>Who? (subject)</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="whoisphrasely">We are a company who is dedicated to destroying the language barriers faced by immigrants, and anyone who struggles with fluency in english.</string>
+<string name="whatwedo">We strive to diminish the language barriers faced by immigrants and hopes to make their lives in foreign countries easier, especially in North America.</string>
+    <string name="whywedoit">Newcomers in North America face a lot of obstacles caused by the well-known language barrier. Many find it extremely hard to adapt to the native language and often face troubles while communicating in the English language. We believe that this is a very unfair disadvantage and are committed to helping lift up the bilingual society.</string>
 </resources>

@@ -41,6 +41,9 @@ public class LanguageChat extends AppCompatActivity {
                         return true;
 
                     case R.id.lang_bot_nav:
+                        startActivity(new Intent(getApplicationContext()
+                                , LanguageBot.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.settings_nav:

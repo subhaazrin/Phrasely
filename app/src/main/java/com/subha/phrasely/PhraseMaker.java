@@ -323,14 +323,6 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
             startActivity(generatesentence);
         } */
 
-
-
-        //next steps:
-        //once button clicked, generate url for the words.
-        //get client stuff
-
-
-
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 

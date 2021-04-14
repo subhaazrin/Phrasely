@@ -27,7 +27,7 @@ public class GeneratedSentence extends AppCompatActivity {
         //object = findViewById(R.id.textViewObjectInput);
         //verb = findViewById(R.id.textViewVerbInput);
 
-        Button sentencee = findViewById(R.id.sentenceBtn);
+        Button sentencebtn = findViewById(R.id.sentenceBtn);
 
         // String Subject = getIntent().getStringExtra("subject");
         //String Verb = getIntent().getStringExtra("verb");
@@ -35,19 +35,18 @@ public class GeneratedSentence extends AppCompatActivity {
 
         String sentence = getIntent().getStringExtra(("sentence"));
 
-        sentencee.setText(sentence);
+        sentencebtn.setText(sentence);
         //subject.setText(Subject);
         // verb.setText(Verb);
         //object.setText(Object);
 
-        //when sentence button clicked
-        Button sentencebtn = findViewById(R.id.sentenceBtn);
 
         sentencebtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //launch Setence Breakdown activity
+                //launch Sentence Breakdown activity
                 Intent showbreakdown = new Intent (GeneratedSentence.this, SentenceBreakdown.class);
+                showbreakdown.putExtra("sentence", sentence);
                 startActivity(showbreakdown);
             }
         });
@@ -76,6 +75,9 @@ public class GeneratedSentence extends AppCompatActivity {
                         return true;
 
                     case R.id.sentence_maker_nav:
+                        startActivity(new Intent(getApplicationContext()
+                                ,PhraseMaker.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.settings_nav:

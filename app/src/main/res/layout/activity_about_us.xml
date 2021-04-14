@@ -92,5 +92,128 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/back_logo" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="558dp"
+        android:fillViewport="false"
+        android:scrollbarSize="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="380dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:background="@color/middlePurple">
+
+                <TextView
+                    android:id="@+id/AboutUsWhoisPhrasely"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/life_savers"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="25dp"
+                    android:text="WHO IS PHRASELY?"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewWhoisPhrasely"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/life_savers"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/whoisphrasely"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AboutUsWhoisPhrasely" />
+
+                <TextView
+                    android:id="@+id/AboutUsWhatWeDo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/life_savers"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="25dp"
+                    android:text="WHAT WE DO"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewWhoisPhrasely" />
+
+                <TextView
+                    android:id="@+id/textViewWhatWeDO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/life_savers"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/whatwedo"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AboutUsWhatWeDo" />
+
+                <TextView
+                    android:id="@+id/AboutUsWhyWeDoIt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/life_savers"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="25dp"
+                    android:text="WHAT WE DO"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewWhatWeDO" />
+
+                <TextView
+                    android:id="@+id/textViewWhyWeDoIt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/life_savers"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:textStyle="bold"
+                    android:paddingBottom="25dp"
+                    android:text="@string/whywedoit"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AboutUsWhyWeDoIt" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

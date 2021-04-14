@@ -40,6 +40,9 @@ protected void onCreate(Bundle savedInstanceState) {
                     return true;
 
                 case R.id.settings_nav:
+                    startActivity(new Intent(getApplicationContext()
+                            ,Settings.class));
+                    overridePendingTransition(0,0);
                     return true;
 
                 case R.id.home_nav:
