@@ -17,7 +17,15 @@
         <activity android:name=".HelpSettings" />
         <activity android:name=".HelpSentenceBreakdown" />
         <activity android:name=".SentenceBreakdown" />
-        <activity android:name=".LanguageChat" />
+
+        <activity
+            android:name=".LanguageChat"/>
+
+            <activity
+                android:name="com.tyagiabhinav.dialogflowchatlibrary.ChatbotActivity"
+        android:launchMode="singleTask"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity android:name=".GeneratedSentence" />
         <activity
             android:name=".Settings"

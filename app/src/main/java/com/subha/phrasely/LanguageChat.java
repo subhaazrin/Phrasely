@@ -9,13 +9,22 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tyagiabhinav.dialogflowchatlibrary.Chatbot;
+import com.tyagiabhinav.dialogflowchatlibrary.ChatbotActivity;
+import com.tyagiabhinav.dialogflowchatlibrary.ChatbotSettings;
+import com.tyagiabhinav.dialogflowchatlibrary.DialogflowCredentials;
+
+import java.util.UUID;
 
 public class LanguageChat extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_chat);
+        openChatbot();
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -66,4 +75,20 @@ public class LanguageChat extends AppCompatActivity {
         Intent langchattobot = new Intent(this, LanguageBot.class);
         startActivity(langchattobot);
     }
+
+    public void openChatbot() {
+// provide your Dialogflow's Google Credential JSON saved under RAW folder in resources
+        DialogflowCredentials.getInstance().setInputStream(getResources().openRawResource(R.raw.credential_file));
+
+        ChatbotSettings.getInstance().setChatbot( new Chatbot.ChatbotBuilder().build());
+        Intent intent = new Intent(LanguageChat.this, ChatbotActivity.class);
+        Bundle bundle = new Bundle();
+
+// provide a UUID for your session with the Dialogflow agent
+        bundle.putString(ChatbotActivity.SESSION_ID, UUID.randomUUID().toString());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     }

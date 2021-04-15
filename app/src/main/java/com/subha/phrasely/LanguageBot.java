@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tyagiabhinav.dialogflowchatlibrary.Chatbot;
+import com.tyagiabhinav.dialogflowchatlibrary.ChatbotActivity;
+import com.tyagiabhinav.dialogflowchatlibrary.ChatbotSettings;
+import com.tyagiabhinav.dialogflowchatlibrary.DialogflowCredentials;
+
+import java.util.UUID;
 
 public class LanguageBot extends AppCompatActivity {
 
@@ -24,9 +30,7 @@ public class LanguageBot extends AppCompatActivity {
         startchatbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
-                Intent startchat = new Intent (LanguageBot.this, LanguageChat.class);
-                startActivity(startchat);
+                openChatbot();
             }
         });
 
@@ -75,4 +79,19 @@ public class LanguageBot extends AppCompatActivity {
         Intent langbottohome = new Intent(this, HomePage.class);
         startActivity(langbottohome);
     }
+    public void openChatbot() {
+// provide your Dialogflow's Google Credential JSON saved under RAW folder in resources
+        DialogflowCredentials.getInstance().setInputStream(getResources().openRawResource(R.raw.credential_file));
+
+        ChatbotSettings.getInstance().setChatbot( new Chatbot.ChatbotBuilder().build());
+        Intent intent = new Intent(LanguageBot.this, ChatbotActivity.class);
+        Bundle bundle = new Bundle();
+
+// provide a UUID for your session with the Dialogflow agent
+        bundle.putString(ChatbotActivity.SESSION_ID, UUID.randomUUID().toString());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
 }

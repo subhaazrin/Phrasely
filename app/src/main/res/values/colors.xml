@@ -16,4 +16,21 @@
     <color name="interjection">#FFC480</color>
     <color name="middlePurple">#E3E4ED</color>
     <color name="radioColorPurple">#9092B5</color>
+
+    <color name="userAvatarBG">@color/purpleee</color>  <!--user avatar color -->
+    <color name="chatPrimary">@color/purpleee</color>  <!-- nav bar and chatbot avatar color -->
+    <color name="chatPrimaryFocus">@color/adjective</color> <!--user text background color -->
+    <color name="chatPrimaryPressed">@color/noun</color> <!--toppest nav bar color color (or we thought so...) -->
+    <color name="chatPrimaryDisabled">@color/preposition</color> <!--n/a -->
+    <color name="chatBGnText">@color/middlePurple</color>  <!--user editText's background's background color -->
+    <color name="chatSecondary">@color/white</color> <!--EditText color and white parts of both avatars -->
+    <color name="chatSecondaryFocus">@color/white</color>
+    <color name="chatSecondaryPressed">@color/preposition</color>
+    <color name="chatSecondaryDisabled">#66FFFFFF</color>
+    <color name="botBGBubbleStroke">#FFBF95</color> <!-- bot text outline color -->
+    <color name="botBGBubble">#F8D3BB</color>  <!-- bot text color -->
+    <color name="userBGBubbleStroke">@color/purpleee</color> <!-- user text outline color -->
+    <color name="userBGBubble">@color/middlePurple</color><!-- user text color -->
+    <color name="checkbox">@color/preposition</color>
+    <color name="statusBarColor">@color/design_default_color_primary_dark</color> <!--toppest nav bar color color -->
 </resources>
