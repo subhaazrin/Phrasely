@@ -153,6 +153,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+    <ImageView
+        android:id="@+id/playICON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
+        app:layout_constraintEnd_toStartOf="@+id/img_help"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toEndOf="@+id/textViewplay"
+        app:srcCompat="@drawable/ic_sound" />
+
 
     <!--<ImageButton
         android:id="@+id/soundbutton"

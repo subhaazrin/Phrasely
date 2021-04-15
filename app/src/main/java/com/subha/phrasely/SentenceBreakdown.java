@@ -1,40 +1,36 @@
 package com.subha.phrasely;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-//add dependencies to your class
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.lang.Object;
-import java.lang.Number;
-import java.lang.Byte;
+import java.util.Locale;
 
+//add dependencies to your class
 
 
 public class SentenceBreakdown extends AppCompatActivity {
 
-    // TextToSpeech t1;
     //ImageButton b1;
+    ImageView play;
+    String sentencePlay;
+    TextToSpeech tts;
+
+
     String urlDefinition;
     String urlExample;
 
@@ -42,9 +38,38 @@ public class SentenceBreakdown extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sentence_breakdown);
+        sentencePlay = getIntent().getStringExtra(("sentence"));
+
+        tts = new TextToSpeech(SentenceBreakdown.this, new TextToSpeech.OnInitListener() {
 
 
-        //displays words
+            @Override
+            public void onInit(int status) {
+
+                if(status == TextToSpeech.SUCCESS){
+                    int result=tts.setLanguage(Locale.US);
+
+                    if(result==TextToSpeech.LANG_MISSING_DATA || result==TextToSpeech.LANG_NOT_SUPPORTED){
+                        Toast.makeText(SentenceBreakdown.this, "This Language is not supported", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                    Toast.makeText(SentenceBreakdown.this, "Initialization failed", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+        ImageView play = (ImageView) findViewById(R.id.playICON);
+
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String toSpeak = sentencePlay;
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                tts.speak(toSpeak,TextToSpeech.QUEUE_FLUSH, null, "hola");
+            }
+        });
+
+            //displays words
         displayWords();
 
         Button button = (Button) findViewById(R.id.btnGoToWordBreakdown);
@@ -54,6 +79,9 @@ public class SentenceBreakdown extends AppCompatActivity {
                 openWordBreakdown();
             }
         });
+
+
+
 
      /*   b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +134,9 @@ public class SentenceBreakdown extends AppCompatActivity {
         });
 
     }
+
+
+
 
 //
 

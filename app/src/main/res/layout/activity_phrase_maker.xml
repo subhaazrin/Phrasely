@@ -119,6 +119,7 @@
                 android:textColor="@color/black"
                 android:textSize="23sp" />
 
+
             <TextView
                 android:id="@+id/textViewSubject"
                 android:layout_width="194dp"
@@ -127,7 +128,8 @@
                 android:layout_marginTop="20dp"
                 android:text=" Subject:"
                 android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:textSize="22sp"/>
+
 
             <RadioGroup
                 android:layout_width="310dp"

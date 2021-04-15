@@ -87,11 +87,13 @@ public class LanguageBot extends AppCompatActivity {
         Intent intent = new Intent(LanguageBot.this, ChatbotActivity.class);
         Bundle bundle = new Bundle();
 
+
 // provide a UUID for your session with the Dialogflow agent
         bundle.putString(ChatbotActivity.SESSION_ID, UUID.randomUUID().toString());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
 
 }
