@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,6 +18,11 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        Intent intent = getIntent();
+        String personGivenName = intent.getExtras().getString("name");
+
+        TextView name = (TextView)findViewById(R.id.nameText);
+        name.setText(personGivenName + "!");
 
         //test
         Button button = (Button) findViewById(R.id.testbtn);
@@ -26,7 +32,6 @@ public class HomePage extends AppCompatActivity {
                 test();
             }
         });
-        //test
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);

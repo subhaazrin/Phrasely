@@ -92,7 +92,7 @@
     <RelativeLayout
         android:id="@+id/SentencebreakdownBackgrnd"
         android:layout_width="312dp"
-        android:layout_height="224dp"
+        android:layout_height="wrap_content"
         android:background="#D1D3FC"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,19 +165,5 @@
         app:srcCompat="@drawable/ic_sound" />
 
 
-    <!--<ImageButton
-        android:id="@+id/soundbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0.5dp"
-        android:layout_marginBottom="8dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
-        app:layout_constraintEnd_toStartOf="@+id/img_help"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toEndOf="@+id/textViewplay"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_sound" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

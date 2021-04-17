@@ -104,12 +104,7 @@ public class Settings extends AppCompatActivity {
                 startActivity(settingstohome);
             }
 
-            //method for going to help page from helpbtn
-            public void gohelpsettings(View v) {
-                //launching Home page activity
-                Intent settingstohelpsettings = new Intent(this, HelpSettings.class);
-                startActivity(settingstohelpsettings);
-            }
+
         }
 
 

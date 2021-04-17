@@ -31,27 +31,44 @@
             android:layout_width="132dp"
             android:layout_height="97dp"
             android:contentDescription="logo "
-            app:layout_constraintBottom_toTopOf="@id/welcometext"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.173"
+            app:layout_constraintVertical_bias="0.266"
             app:srcCompat="@drawable/small_logo" />
 
         <TextView
             android:id="@+id/welcometext"
-            android:layout_width="172dp"
-            android:layout_height="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
             android:background="#DEDFEA"
             android:fontFamily="sans-serif-light"
-            android:text=" Welcome Back!"
+            android:text=" Welcome "
+            android:layout_marginLeft="100dp"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nameText"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoo"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:background="#DEDFEA"
+            android:fontFamily="sans-serif-light"
+            android:text=" Welcome"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/welcometext"
             app:layout_constraintTop_toBottomOf="@+id/logoo" />
 
         <Button

@@ -16,7 +16,6 @@
         <activity android:name=".WordBreakdown" />
         <activity android:name=".AboutUs" />
         <activity android:name=".TermsAndConditions" />
-        <activity android:name=".HelpSettings" />
         <activity android:name=".HelpSentenceBreakdown" />
         <activity android:name=".SentenceBreakdown" />
         <activity

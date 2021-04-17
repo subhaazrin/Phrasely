@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,6 +33,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //making title in top left corner
         setTitle("Launch Sign In Page");//commenting
+
+        TextView privacy =(TextView)findViewById(R.id.textPolicyPrivacy);
+        privacy.setClickable(true);
+        privacy.setMovementMethod(LinkMovementMethod.getInstance());
+        String privacytext = "<a href='https://phrasely.flycricket.io/privacy.html'>Privacy Policy</a>";
+        privacy.setText(Html.fromHtml(privacytext));
+
+        TextView terms =(TextView)findViewById(R.id.TextTermsandConditions);
+        terms.setClickable(true);
+        terms.setMovementMethod(LinkMovementMethod.getInstance());
+        String termstext = "<a href='https://phrasely.flycricket.io/terms.html'>Terms And Conditions</a>";
+        terms.setText(Html.fromHtml(termstext));
 
 
         // Configure sign-in to request the user's ID, email address, and basic
@@ -67,14 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-   /* //method for going to homepage
-  public void goHomePage(View v){
-        //launching Home page activity
-        Intent mainPage = new Intent (this, HomePage.class);
-        startActivity(mainPage);
-
-}*/
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -95,17 +102,21 @@ public class MainActivity extends AppCompatActivity {
             GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
             if (acct != null) {
                 String personName = acct.getDisplayName();
-
                 String personGivenName = acct.getGivenName();
                 String personFamilyName = acct.getFamilyName();
                 String personEmail = acct.getEmail();
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
 
+                Intent i = new Intent(MainActivity.this, HomePage.class);
+                i.putExtra("name",personGivenName);
+                startActivity(i);
+
+
+
                 Toast.makeText(this, "User Email:" + personEmail, Toast.LENGTH_SHORT).show();
             }
 
-            startActivity(new Intent(MainActivity.this, HomePage.class));
 
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.

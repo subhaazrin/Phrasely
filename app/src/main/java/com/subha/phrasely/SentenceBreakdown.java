@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -155,12 +156,15 @@ public class SentenceBreakdown extends AppCompatActivity {
 
     public void displayWords() {
         String[] words = getWords();
-        RelativeLayout wordBackground = (RelativeLayout) findViewById(R.id.SentencebreakdownBackgrnd);
+       RelativeLayout wordBackground = (RelativeLayout) findViewById(R.id.SentencebreakdownBackgrnd);
+      //  LinearLayout wordBackground = (LinearLayout) findViewById(R.id.SentencebreakdownBackgrnd);
+       // setContentView(wordBackground);
+       // wordBackground.setOrientation(LinearLayout.HORIZONTAL);
+
         for (String word : words) {
             TextView sentenceWord = new TextView(this);
 
-            sentenceWord.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-
+           sentenceWord.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
             sentenceWord.setText(word);
             sentenceWord.setClickable(true);
             //sentenceWord.setGravity(Gravity.CENTER);
