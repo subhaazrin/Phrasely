@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LanguageBot">
+    tools:context=".LanguageBuddy">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dwww"
@@ -33,11 +33,11 @@
 
         <TextView
             android:id="@+id/langbuddytitle"
-            android:layout_width="174dp"
+            android:layout_width="205dp"
             android:layout_height="36dp"
             android:background="#DEDFEA"
             android:fontFamily="sans-serif-light"
-            android:text="   Language Bot"
+            android:text="   Language Buddy"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="normal"
@@ -90,56 +90,15 @@
         app:menu="@menu/menu_navigation"/>
 
     <TextView
-        android:id="@+id/txtViewlangbotintro"
+        android:id="@+id/comingsoonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Hi, I'm LangBot"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtViewlangbotintro2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <TextView
-        android:id="@+id/txtViewlangbotintro2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Are you ready to chat with me?"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewlangbotintro" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="Coming Soon !"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartChat"
-        app:srcCompat="@drawable/robot" />
-
-    <Button
-        android:id="@+id/btnStartChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-condensed"
-        android:includeFontPadding="false"
-        android:text="Start a Chat"
-        app:cornerRadius="25dp"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:backgroundTint="#D3C7EC"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewlangbotintro2" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

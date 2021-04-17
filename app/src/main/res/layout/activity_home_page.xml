@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dww"
         android:layout_width="match_parent"
-        android:layout_height="165dp"
+        android:layout_height="157dp"
         android:background="@color/purpleee"
         android:gravity="top"
         android:padding="0dp"
@@ -71,30 +71,30 @@
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dww"
         tools:ignore="NotSibling">
 
         <ImageView
             android:id="@+id/sentenceMakericon"
-            android:layout_width="211dp"
-            android:layout_height="206dp"
+            android:layout_width="146dp"
+            android:layout_height="146dp"
 
             android:contentDescription="phaser maker"
             android:onClick="goPhraseMaker"
             app:layout_constraintBottom_toTopOf="@id/sentencemakertext"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.34"
             app:srcCompat="@drawable/sentence_maker_icon" />
 
         <ImageView
             android:id="@+id/langBotIcon"
-            android:layout_width="209dp"
-            android:layout_height="205dp"
+            android:layout_width="146dp"
+            android:layout_height="146dp"
 
             android:layout_marginTop="16dp"
 
@@ -102,7 +102,7 @@
             android:onClick="goLanguageBot"
             app:layout_constraintBottom_toTopOf="@+id/langbottext"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sentenceMakericon"
             app:srcCompat="@drawable/langbot_icon" />
@@ -119,6 +119,7 @@
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/langBotIcon"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sentencemakertext"
             app:layout_constraintVertical_bias="1.0" />
@@ -133,11 +134,38 @@
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/langBotIcon" />
+
+        <TextView
+            android:id="@+id/langbuddytext"
+            android:layout_width="155dp"
+            android:layout_height="26dp"
+            android:background="#DEDFEA"
+            android:fontFamily="sans-serif-light"
+            android:text=" Language Buddy"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/langBotIcon"
-            app:layout_constraintVertical_bias="0.95" />
+            app:layout_constraintTop_toBottomOf="@+id/langbuddyicon" />
+
+        <ImageView
+            android:id="@+id/langbuddyicon"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="0dp"
+            android:onClick="goLanguageBuddy"
+            app:layout_constraintBottom_toTopOf="@id/langbuddytext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/langbottext"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/languagebuddy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

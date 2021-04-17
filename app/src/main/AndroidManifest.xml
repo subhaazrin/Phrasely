@@ -3,7 +3,7 @@
     package="com.subha.phrasely">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -12,18 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Phrasely">
-        <activity android:name=".WordBreakdown"></activity>
+        <activity android:name=".LanguageBuddy"></activity>
+        <activity android:name=".WordBreakdown" />
         <activity android:name=".AboutUs" />
         <activity android:name=".TermsAndConditions" />
         <activity android:name=".HelpSettings" />
         <activity android:name=".HelpSentenceBreakdown" />
         <activity android:name=".SentenceBreakdown" />
-
         <activity
-                android:name="com.tyagiabhinav.dialogflowchatlibrary.ChatbotActivity"
-        android:launchMode="singleTask"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
+            android:name="com.tyagiabhinav.dialogflowchatlibrary.ChatbotActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".GeneratedSentence" />
         <activity
             android:name=".Settings"
