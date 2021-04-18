@@ -65,6 +65,7 @@ public class HelpSentenceBreakdown extends AppCompatActivity {
         //launching phraser main activity
         Intent helpbreakdowntobreakdown = new Intent(this, SentenceBreakdown.class);
         startActivity(helpbreakdowntobreakdown);
+
     }
 
 }

@@ -14,12 +14,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class WordBreakdown extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_breakdown);
 
+        String DEFINITION = getDefinition();
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -34,26 +34,26 @@ public class WordBreakdown extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.home_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,HomePage.class));
-                        overridePendingTransition(0,0);
+                                , HomePage.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.lang_bot_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,LanguageBot.class));
-                        overridePendingTransition(0,0);
+                                , LanguageBot.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.sentence_maker_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,PhraseMaker.class));
-                        overridePendingTransition(0,0);
+                                , PhraseMaker.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.settings_nav:
                         startActivity(new Intent(getApplicationContext()
-                                ,Settings.class));
-                        overridePendingTransition(0,0);
+                                , Settings.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -63,11 +63,13 @@ public class WordBreakdown extends AppCompatActivity {
         });
 
     }
+
     //method for going to sentence breakdown Activity from backbutton
     public void goback(View v) {
         //launching  activity
-        Intent wordbreakdowntosentencebreakdown = new Intent(this, GeneratedSentence.class);
-        startActivity(wordbreakdowntosentencebreakdown);
+        //Intent wordbreakdowntosentencebreakdown = new Intent(this, GeneratedSentence.class);
+        //startActivity(wordbreakdowntosentencebreakdown);
+        this.finish();
     }
 
     public void gohelp(View v) {
@@ -75,6 +77,17 @@ public class WordBreakdown extends AppCompatActivity {
         Intent wordbreakdowntohelp = new Intent(this, HelpSentenceBreakdown.class);
         startActivity(wordbreakdowntohelp);
     }
+
+    public String getDefinition() {
+        String definition = getIntent().getStringExtra(("definition"));
+        return definition;
+    }
+
+   /* public String getMyData() {
+       String def = getDefinition();
+        return def;
+    }*/
+
 }
 
 

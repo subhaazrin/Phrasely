@@ -24,12 +24,13 @@ import java.util.Locale;
 //add dependencies to your class
 
 
-public class SentenceBreakdown extends AppCompatActivity {
+public class SentenceBreakdown extends AppCompatActivity implements OxfordRequest.AsyncResponse {
 
     //ImageButton b1;
     ImageView play;
     String sentencePlay;
     TextToSpeech tts;
+    ImageView backbtn;
 
 
     String urlDefinition;
@@ -40,6 +41,7 @@ public class SentenceBreakdown extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sentence_breakdown);
         sentencePlay = getIntent().getStringExtra(("sentence"));
+
 
         tts = new TextToSpeech(SentenceBreakdown.this, new TextToSpeech.OnInitListener() {
 
@@ -77,7 +79,8 @@ public class SentenceBreakdown extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWordBreakdown();
+                Intent openWordBreakdown = new Intent(SentenceBreakdown.this, WordBreakdown.class);
+                startActivity(openWordBreakdown);
             }
         });
 
@@ -179,12 +182,12 @@ public class SentenceBreakdown extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    OxfordRequest dR = new OxfordRequest(defDef);
-                    OxfordRequestExamples dRR = new OxfordRequestExamples(exmExm);
-
+                    OxfordRequest dR = new OxfordRequest(SentenceBreakdown.this);
                     urlDefinition = dictionaryEntriesDefinition(word);
                     dR.execute(urlDefinition);
 
+
+                    OxfordRequestExamples dRR = new OxfordRequestExamples(exmExm);
                     urlExample = dictionaryEntriesExample(word);
                     dRR.execute(urlExample);
 
@@ -193,7 +196,6 @@ public class SentenceBreakdown extends AppCompatActivity {
 
 //i dot think we can d anything from here. we prolly have to research how to return string from async task and prolly have to mostlikely change things in OCfordRequet rather than here. brb
 
-                    openWordBreakdown();
                 }
             });
 
@@ -264,15 +266,18 @@ public class SentenceBreakdown extends AppCompatActivity {
     //method for going to Generated Sentence Activity from backbutton
     public void goback(View v) {
         //launching  activity
-        Intent breakdowntogenerated = new Intent(this, GeneratedSentence.class);
-        startActivity(breakdowntogenerated);
+       // Intent breakdowntogenerated = new Intent(this, GeneratedSentence.class);
+        //startActivity(breakdowntogenerated);
+        this.finish();
+
     }
 
-    public void openWordBreakdown(/*String definition*/) {
+
+   /* public void openWordBreakdown() {
         Intent intent = new Intent(this, WordBreakdown.class);
        // intent.putExtra("definition", definition);
         startActivity(intent);
-    }
+    }*/
 
 
     public void gohelp(View v) {
@@ -281,6 +286,15 @@ public class SentenceBreakdown extends AppCompatActivity {
         startActivity(breakdowntohelp);
     }
 
+   @Override
+    public void processFinish(String output) {
+       Intent openWordBreakdown = new Intent(this, WordBreakdown.class);
+       openWordBreakdown.putExtra("definition", output);
+       startActivity(openWordBreakdown);
+
+      //  Log.v("test", output);
+
     }
+}
 
 

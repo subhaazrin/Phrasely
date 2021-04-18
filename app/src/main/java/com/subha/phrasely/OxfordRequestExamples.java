@@ -74,12 +74,14 @@ public class OxfordRequestExamples extends AsyncTask<String, Integer, String> {
             JSONObject de = sensesArray.getJSONObject(0);
             JSONArray d = de.getJSONArray("examples");
 
-            example = d.getString(0);
+            JSONObject exm = d.getJSONObject(0);
+            example = exm.getString("text");
+            //example = d.getString(0);
             result = example;
+            Log.v("example", result);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("example:", result);
     }
 }

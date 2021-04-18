@@ -56,6 +56,9 @@ public class wordsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
 //        showDefinition =  getView().findViewById(R.id.textView4);
   //      showExample =  getView().findViewById(R.id.textView7);
 
@@ -75,8 +78,6 @@ public class wordsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_words, container, false);
-
-
 
     }
 }

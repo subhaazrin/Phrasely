@@ -14,12 +14,15 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class OxfordRequest extends AsyncTask<String, Integer, String> {
+public class OxfordRequest extends AsyncTask<String,Void, String> {
 
-    String defDef;
+    public interface AsyncResponse {
+        void processFinish(String output);
+    }
+    public AsyncResponse delegate = null;
 
-    OxfordRequest (String def) {
-        defDef = def;
+    public OxfordRequest(AsyncResponse delegate){
+        this.delegate = delegate;
     }
 
 
@@ -59,6 +62,7 @@ public class OxfordRequest extends AsyncTask<String, Integer, String> {
         super.onPostExecute(result);
 
         String definition;
+
         try {
             JSONObject js = new JSONObject(result);
             JSONArray results = js.getJSONArray("results");
@@ -77,10 +81,12 @@ public class OxfordRequest extends AsyncTask<String, Integer, String> {
 
             definition = d.getString(0);
             result = definition;
+            Log.v("definition", result);
+            delegate.processFinish(result);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("definition:", result);
+
     }
 }

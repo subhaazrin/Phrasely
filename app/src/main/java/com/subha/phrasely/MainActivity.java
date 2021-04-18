@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 Uri personPhoto = acct.getPhotoUrl();
 
                 Intent i = new Intent(MainActivity.this, HomePage.class);
-                i.putExtra("name",personGivenName);
+                i.putExtra("name", personGivenName);
                 startActivity(i);
 
 

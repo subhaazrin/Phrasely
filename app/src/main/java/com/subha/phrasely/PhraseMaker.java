@@ -39,6 +39,8 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
     String tense_int = "present";
     String sentencetype_int = "";
     String negated_int="";
+    boolean subPlural;
+    boolean objplural;
 
     //subject determiner (a, the , nothing)
     public void onRadioButtonClicked(View view) {
@@ -141,6 +143,7 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
             case R.id.PluralSubjectRadio:
                 if (checked){
                     subjnum_int = "plural";
+                    subPlural = true;
                 }
                     break;
 
@@ -164,6 +167,7 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
             case R.id.PluralObjectRadio:
                 if (checked){
                     objnum_int="plural";
+                    objplural = true;
                 }
                     break;
 
@@ -365,9 +369,11 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
     //method for going to homepage from backbutton
     public void goback(View v) {
         //launching Home page activity
-        Intent phrasertohome = new Intent(this, HomePage.class);
-        startActivity(phrasertohome);
+       // Intent phrasertohome = new Intent(this, HomePage.class);
+       // startActivity(phrasertohome);
+        this.finish();
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(PhraseMaker.this, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();

@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,6 +19,18 @@ public class TermsAndConditions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        TextView privacyy =(TextView)findViewById(R.id.PolicyLink);
+        privacyy.setClickable(true);
+        privacyy.setMovementMethod(LinkMovementMethod.getInstance());
+        String privacytextt = "<a href='https://phrasely.flycricket.io/privacy.html'>Privacy Policy</a>";
+        privacyy.setText(Html.fromHtml(privacytextt));
+
+        TextView termss =(TextView)findViewById(R.id.TermsLink);
+        termss.setClickable(true);
+        termss.setMovementMethod(LinkMovementMethod.getInstance());
+        String termstextt = "<a href='https://phrasely.flycricket.io/terms.html'>Terms And Conditions</a>";
+        termss.setText(Html.fromHtml(termstextt));
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);

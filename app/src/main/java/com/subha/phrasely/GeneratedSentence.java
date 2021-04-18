@@ -97,7 +97,8 @@ public class GeneratedSentence extends AppCompatActivity {
     //method for going to homepage from backbutton
     public void goback(View v) {
         //launching phraser main activity
-        Intent generatedtophraser = new Intent(this, PhraseMaker.class);
-        startActivity(generatedtophraser);
+       // Intent generatedtophraser = new Intent(this, PhraseMaker.class);
+        //startActivity(generatedtophraser);
+        this.finish();
     }
 }

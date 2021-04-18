@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -19,12 +20,33 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Settings extends AppCompatActivity {
 
+    Button goToTerms;
+    Button goToAbout;
+
     GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        goToTerms = findViewById(R.id.termsBtn);
+        goToAbout = findViewById(R.id.aboutusbtn);
+
+        goToTerms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Settings.this, TermsAndConditions.class));
+            }
+        });
+
+        goToAbout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(Settings.this, AboutUs.class));
+            }
+        });
+
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -103,6 +125,18 @@ public class Settings extends AppCompatActivity {
                 Intent settingstohome = new Intent(this, HomePage.class);
                 startActivity(settingstohome);
             }
+
+  /*  public void gototerms(View v) {
+
+        Intent settingstoterms = new Intent(this, TermsAndConditions.class);
+        startActivity(settingstoterms);
+    }
+
+    public void gotoabout(View v) {
+
+        Intent settingstoabout = new Intent(this, AboutUs.class);
+        startActivity(settingstoabout);
+    }*/
 
 
         }
