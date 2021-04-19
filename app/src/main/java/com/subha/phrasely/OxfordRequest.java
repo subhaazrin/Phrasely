@@ -3,6 +3,7 @@ package com.subha.phrasely;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,6 +63,7 @@ public class OxfordRequest extends AsyncTask<String,Void, String> {
         super.onPostExecute(result);
 
         String definition;
+        String lexical;
 
         try {
             JSONObject js = new JSONObject(result);
@@ -86,7 +88,9 @@ public class OxfordRequest extends AsyncTask<String,Void, String> {
 
         } catch (JSONException e) {
             e.printStackTrace();
+            delegate.processFinish(null);
         }
 
     }
+
 }

@@ -1,6 +1,8 @@
 package com.subha.phrasely;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -159,20 +162,23 @@ public class SentenceBreakdown extends AppCompatActivity implements OxfordReques
 
     public void displayWords() {
         String[] words = getWords();
-       RelativeLayout wordBackground = (RelativeLayout) findViewById(R.id.SentencebreakdownBackgrnd);
-      //  LinearLayout wordBackground = (LinearLayout) findViewById(R.id.SentencebreakdownBackgrnd);
-       // setContentView(wordBackground);
-       // wordBackground.setOrientation(LinearLayout.HORIZONTAL);
+
+      // RelativeLayout wordBackground = (RelativeLayout) findViewById(R.id.SentencebreakdownBackgrnd);
+
+        LinearLayout wordBackground = findViewById(R.id.SentencebreakdownBackgrnd);
 
         for (String word : words) {
             TextView sentenceWord = new TextView(this);
-
-           sentenceWord.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
             sentenceWord.setText(word);
             sentenceWord.setClickable(true);
-            //sentenceWord.setGravity(Gravity.CENTER);
             sentenceWord.setBackgroundColor(getResources().getColor(R.color.radioColorPurple));
+            sentenceWord.setPadding(30, 10, 30, 10 );
+
+            Space space = new Space(this);
+
             wordBackground.addView(sentenceWord);
+            wordBackground.addView(space);
+
             sentenceWord.setOnClickListener(new View.OnClickListener() {
 
                 String defDef = word;
@@ -190,6 +196,12 @@ public class SentenceBreakdown extends AppCompatActivity implements OxfordReques
                     OxfordRequestExamples dRR = new OxfordRequestExamples(exmExm);
                     urlExample = dictionaryEntriesExample(word);
                     dRR.execute(urlExample);
+
+                    String WordName = word;
+                    SharedPreferences sharedPref = getSharedPreferences("key", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("value", WordName);
+                    editor.apply();
 
 
                     //result = dR.getvalue(result);
@@ -230,7 +242,6 @@ public class SentenceBreakdown extends AppCompatActivity implements OxfordReques
 
         }
     }
-
 
     /*  count words, loop for every word, create a textview/button , background
         onclick word , get the string from the text, and index
@@ -288,13 +299,17 @@ public class SentenceBreakdown extends AppCompatActivity implements OxfordReques
 
    @Override
     public void processFinish(String output) {
-       Intent openWordBreakdown = new Intent(this, WordBreakdown.class);
-       openWordBreakdown.putExtra("definition", output);
-       startActivity(openWordBreakdown);
-
+        if(output == null){
+            Toast.makeText(getApplicationContext(), "Infomation not available for this word, try another word.", Toast.LENGTH_LONG).show();
+       } else {
+            Intent openWordBreakdown = new Intent(this, WordBreakdown.class);
+            openWordBreakdown.putExtra("definition", output);
+            startActivity(openWordBreakdown);
+        }
       //  Log.v("test", output);
 
     }
 }
+
 
 

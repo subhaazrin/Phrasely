@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,13 @@ public class WordBreakdown extends AppCompatActivity {
         setContentView(R.layout.activity_word_breakdown);
 
         String DEFINITION = getDefinition();
+        TextView definition =  findViewById(R.id.textView4);
+        definition.setText(DEFINITION);
+
+        TextView word = findViewById(R.id.textView);
+        SharedPreferences sharedPreferences = getSharedPreferences("key", MODE_PRIVATE);
+        String WordName = sharedPreferences.getString("value", "");
+        word.setText(WordName);
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -83,10 +91,6 @@ public class WordBreakdown extends AppCompatActivity {
         return definition;
     }
 
-   /* public String getMyData() {
-       String def = getDefinition();
-        return def;
-    }*/
 
 }
 

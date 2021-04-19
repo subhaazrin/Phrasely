@@ -289,7 +289,7 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
                             startActivity(generatesentence);
 
                             int duration= Toast.LENGTH_SHORT;
-                            Toast toast = Toast.makeText(message, url + text, duration);
+                            Toast toast = Toast.makeText(message, text, duration);
                             toast.show();
 
                         } catch (JSONException e) {
@@ -376,7 +376,6 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(PhraseMaker.this, parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
         String itemOnSentence = parent.getItemAtPosition(position).toString();
         if( itemOnSentence.equals("Declarative")){
             sentencetype_int = "";

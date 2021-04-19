@@ -33,11 +33,11 @@
 
         <TextView
             android:id="@+id/phraser"
-            android:layout_width="163dp"
+            android:layout_width="200dp"
             android:layout_height="35dp"
             android:background="#DEDFEA"
             android:fontFamily="sans-serif-light"
-            android:text="  Phrase Maker"
+            android:text="  Phrase Generator  "
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="normal"
@@ -89,11 +89,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/SentencebreakdownBackgrnd"
         android:layout_width="312dp"
         android:layout_height="wrap_content"
         android:background="#D1D3FC"
+        android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -101,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.374">
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewplay"
@@ -113,10 +115,10 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/SentencebreakdownBackgrnd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.912" />
+        app:layout_constraintVertical_bias="0.951" />
 
     <ImageView
         android:id="@+id/img_help"
