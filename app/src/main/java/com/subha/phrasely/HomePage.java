@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,20 +21,6 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Intent intent = getIntent();
-        String personGivenName = intent.getExtras().getString("name");
-
-        TextView name = (TextView)findViewById(R.id.nameText);
-        name.setText(personGivenName + "!");
-
-        //test
-        Button button = (Button) findViewById(R.id.testbtn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                test();
-            }
-        });
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -71,38 +60,46 @@ public class HomePage extends AppCompatActivity {
 
 
         });
+        ImageView langbot = (ImageView) findViewById(R.id.langBotIcon);
+
+        langbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent langbott = new Intent (getApplicationContext(), LanguageBot.class);
+                startActivity(langbott);
+            }
+        });
+        ImageView phrasegen = (ImageView) findViewById(R.id.sentenceMakericon);
+
+        phrasegen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sentence = new Intent (getApplicationContext(), PhraseMaker.class);
+                startActivity(sentence);
+            }
+        });
+        ImageView langbuddy = (ImageView) findViewById(R.id.langbuddyicon);
+
+        langbuddy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent langbud = new Intent (getApplicationContext(), LanguageBuddy.class);
+                startActivity(langbud);
+            }
+        });
+
+
+        getName();
     }
 
-    //method for going to PhraseMaker
-    public void goPhraseMaker(View v){
-        //launching Phrase Maker activity
-        Intent phrasemaker = new Intent (this, PhraseMaker.class);
-        startActivity(phrasemaker);
+    public void getName() {
+        Intent intent = getIntent();
+        String personGivenName = intent.getExtras().getString("name");
 
+        TextView name = (TextView) findViewById(R.id.nameText);
+        name.setText(personGivenName + "!");
     }
 
 
-    //test
-    public void test(){Intent intent = new Intent(this, WordBreakdown.class);
-        startActivity(intent);
-    }
-    //test
-
-
-    //method for going to LanguageBot
-    public void goLanguageBot(View v){
-        //launching Language Bot activity
-        Intent langbott = new Intent (this, LanguageBot.class);
-        startActivity(langbott);
-
-    }
-
-    //method for going to LanguageBuddy
-    public void goLanguageBuddy(View v){
-        //launching Language Buddy activity
-        Intent langbud = new Intent (this, LanguageBuddy.class);
-        startActivity(langbud);
-
-    }
 
 }

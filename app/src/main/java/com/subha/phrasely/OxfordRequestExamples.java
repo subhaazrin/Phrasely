@@ -14,13 +14,17 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class OxfordRequestExamples extends AsyncTask<String, Integer, String> {
+public class OxfordRequestExamples extends AsyncTask<String, Void, String> {
 
-    String exmExm;
-
-    OxfordRequestExamples(String exm) {
-        exmExm = exm;
+    public interface AsyncResponseExample {
+        void processFinishexample(String output);
     }
+    public OxfordRequestExamples.AsyncResponseExample delegate = null;
+
+    public OxfordRequestExamples(OxfordRequestExamples.AsyncResponseExample delegate){
+        this.delegate = delegate;
+    }
+
 
 
     @Override
@@ -80,9 +84,11 @@ public class OxfordRequestExamples extends AsyncTask<String, Integer, String> {
             //example = d.getString(0);
             result = example;
             Log.v("example", result);
+            delegate.processFinishexample(result);
 
         } catch (JSONException e) {
             e.printStackTrace();
+            delegate.processFinishexample(null);
         }
     }
 }

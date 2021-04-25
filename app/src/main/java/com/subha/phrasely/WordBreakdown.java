@@ -24,10 +24,19 @@ public class WordBreakdown extends AppCompatActivity {
         TextView definition =  findViewById(R.id.textView4);
         definition.setText(DEFINITION);
 
+        String EXAMPLE = getExample();
+        TextView example = findViewById(R.id.textView6);
+        example.setText(EXAMPLE);
+
         TextView word = findViewById(R.id.textView);
         SharedPreferences sharedPreferences = getSharedPreferences("key", MODE_PRIVATE);
         String WordName = sharedPreferences.getString("value", "");
         word.setText(WordName);
+
+        if(WordName=="I"){
+        TextView lex = findViewById(R.id.textView2);
+        lex.setText("pronoun");
+        }
 
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -70,6 +79,16 @@ public class WordBreakdown extends AppCompatActivity {
 
         });
 
+    }
+
+    private String getLex() {
+        String lexical = getIntent().getStringExtra("lexical");
+        return lexical;
+    }
+
+    private String getExample() {
+        String example = getIntent().getStringExtra("example");
+        return example;
     }
 
     //method for going to sentence breakdown Activity from backbutton

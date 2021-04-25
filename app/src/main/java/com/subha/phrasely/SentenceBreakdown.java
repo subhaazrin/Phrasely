@@ -27,17 +27,19 @@ import java.util.Locale;
 //add dependencies to your class
 
 
-public class SentenceBreakdown extends AppCompatActivity implements OxfordRequest.AsyncResponse {
+public class SentenceBreakdown extends AppCompatActivity implements OxfordRequest.AsyncResponse, OxfordRequestExamples.AsyncResponseExample, OxfordRequestLexical.AsyncResponseLex   {
 
     //ImageButton b1;
     ImageView play;
+    String output2;
     String sentencePlay;
     TextToSpeech tts;
     ImageView backbtn;
-
+    String output1;
 
     String urlDefinition;
     String urlExample;
+    String urlLexical;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,27 +80,6 @@ public class SentenceBreakdown extends AppCompatActivity implements OxfordReques
             //displays words
         displayWords();
 
-        Button button = (Button) findViewById(R.id.btnGoToWordBreakdown);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openWordBreakdown = new Intent(SentenceBreakdown.this, WordBreakdown.class);
-                startActivity(openWordBreakdown);
-            }
-        });
-
-
-
-
-     /*   b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String toSpeak = sentence;
-                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
-            }
-        });
-*/
         //initialize and assigning variable for nav bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
@@ -193,9 +174,13 @@ public class SentenceBreakdown extends AppCompatActivity implements OxfordReques
                     dR.execute(urlDefinition);
 
 
-                    OxfordRequestExamples dRR = new OxfordRequestExamples(exmExm);
+                    OxfordRequestExamples dRR = new OxfordRequestExamples(SentenceBreakdown.this);
                     urlExample = dictionaryEntriesExample(word);
                     dRR.execute(urlExample);
+
+                    OxfordRequestLexical dRRR = new OxfordRequestLexical(SentenceBreakdown.this);
+                    urlLexical= dictionaryEntriesExample(word);
+                    dRRR.execute(urlLexical);
 
                     String WordName = word;
                     SharedPreferences sharedPref = getSharedPreferences("key", MODE_PRIVATE);
@@ -300,15 +285,37 @@ public class SentenceBreakdown extends AppCompatActivity implements OxfordReques
    @Override
     public void processFinish(String output) {
         if(output == null){
-            Toast.makeText(getApplicationContext(), "Infomation not available for this word, try another word.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Information not available for this word, try another word.", Toast.LENGTH_LONG).show();
        } else {
+            output1 = output;
+        }
+    }
+
+    @Override
+    public void processFinish2(String output) {
+        if(output == null){
+            Toast.makeText(getApplicationContext(), "Information not available for this word, try another word.", Toast.LENGTH_LONG).show();
+        } else {
+            output2 = output;
+
+            Log.v("lexical", output2);
+        }
+    }
+
+    @Override
+    public void processFinishexample(String output) {
+        if(output == null){
+            Toast.makeText(getApplicationContext(), "Information not available for this word, try another word.", Toast.LENGTH_LONG).show();
+        } else {
             Intent openWordBreakdown = new Intent(this, WordBreakdown.class);
-            openWordBreakdown.putExtra("definition", output);
+            openWordBreakdown.putExtra("definition", output1);
+            openWordBreakdown.putExtra("example", output);
+            openWordBreakdown.putExtra("lexical", output2);
             startActivity(openWordBreakdown);
         }
-      //  Log.v("test", output);
-
     }
+
+
 }
 
 
