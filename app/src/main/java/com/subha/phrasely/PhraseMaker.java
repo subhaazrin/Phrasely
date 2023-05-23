@@ -247,7 +247,7 @@ public class PhraseMaker extends AppCompatActivity implements AdapterView.OnItem
 
                 //Api stuff
                 AsyncHttpClient client = new AsyncHttpClient();
-                client.addHeader("x-rapidapi-key", "cdd85fe9c4msh0221571fabec381p19a98bjsn16a1d4a2d848");
+                client.addHeader("x-rapidapi-key", "apiKey");
                 client.addHeader("x-rapidapi-host", "linguatools-sentence-generating.p.rapidapi.com");
 
                 final String OBJECT = "object=";
