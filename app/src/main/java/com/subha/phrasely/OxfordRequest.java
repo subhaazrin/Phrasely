@@ -31,8 +31,8 @@ public class OxfordRequest extends AsyncTask<String,Void, String> {
     protected String doInBackground(String... params) {
 
         
-        final String app_id = "78bcc445";
-        final String app_key = "063b50a0e28c543abb15355ca15a8e84";
+        final String app_id = "yourID";
+        final String app_key = "yourKey";
         try {
             URL url = new URL(params[0]);
             HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
